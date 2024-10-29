@@ -41,12 +41,17 @@ app.use(session({
     saveUninitialized: false
 }));
 
+const localOptions = {
+    usernameField: 'email', // Assuming email is used as the username
+    passwordField: 'password', // Field name for the password
+    passReqToCallback: false // Don't pass request object to verify callback
+};
 // Passport setup
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy(localOptions, 
     function(username, password, done) {
         // Replace this with your own logic to verify username and password
-        if (username === 'user' && password === 'pass') {
-            return done(null, { id: 1, username: 'user' });
+        if (username === 'b@b.com' && password === 'b') {
+            return done(null, { id: 1, username: 'b@b.com' });
         } else {
             return done(null, false, { message: 'Incorrect credentials.' });
         }
