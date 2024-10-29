@@ -44,7 +44,7 @@ app.use(session({
 const localOptions = {
     usernameField: 'email', // Assuming email is used as the username
     passwordField: 'password', // Field name for the password
-    passReqToCallback: false // Don't pass request object to verify callback
+    passReqToCallback: true // Don't pass request object to verify callback
 };
 // Passport setup
 passport.use(new LocalStrategy(localOptions, 
