@@ -7,7 +7,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
-//const client = redis.createClient({"url": "redis://red-csfobk08fa8c73a1gftg:6379"});
 
 const corsOptions = {
     origin: [
@@ -28,7 +27,8 @@ app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 
 
-const client = redis.createClient();
+const client = redis.createClient({"url": "redis://red-csfobk08fa8c73a1gftg:6379"});
+//const client = redis.createClient();
 client.connect();
 
 app.use(express.urlencoded({ extended: false }));
