@@ -6,7 +6,28 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
-const client = redis.createClient({"url": "redis://red-csfobk08fa8c73a1gftg:6379"});
+//const client = redis.createClient({"url": "redis://red-csfobk08fa8c73a1gftg:6379"});
+
+const corsOptions = {
+    origin: [
+        '*',
+        'http://localhost:3000',
+        'https://accounts.google.com',  // Keeping the Google origin
+        'https://https://testr-lwj0.onrender.com',
+        'https://*.onrender.com'
+    ],
+    credentials: true, // Allow credentials (cookies, Authorization headers)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept' ]
+};
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
+// Apply CORS middleware before your routes
+app.use(cors(corsOptions));
+
+
+const client = redis.createClient();
 client.connect();
 
 app.use(express.urlencoded({ extended: false }));
