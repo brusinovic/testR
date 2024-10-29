@@ -49,7 +49,7 @@ const localOptions = {
 
 
 // Passport setup
-passport.use(new LocalStrategy( localOptions,
+passport.use(new LocalStrategy(
     function(username, password, done) {
         // Replace this with your own logic to verify username and password
         if (username === 'b@b.com' && password === 'b') {
