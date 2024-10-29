@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const cors = require('cors');
 const RedisStore = require('connect-redis').default;
 const redis = require('redis');
 const passport = require('passport');
