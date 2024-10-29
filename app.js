@@ -66,7 +66,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
     // Replace this with your own logic to fetch user by ID
-    done(null, { id: 1, username: 'user' });
+    done(null, { id: 1, username: 'b@b.com' });
 });
 
 app.use(passport.initialize());
