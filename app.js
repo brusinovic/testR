@@ -43,13 +43,14 @@ app.use(session({
 
 const localOptions = {
     usernameField: 'email', // Assuming email is used as the username
-    passwordField: 'password', // Field name for the password
+    passwordField: 'password', 
+    session: true, 
     passReqToCallback: true // Don't pass request object to verify callback
 };
 
 
 // Passport setup
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy( localOptions,
     function(username, password, done) {
         // Replace this with your own logic to verify username and password
         if (username === 'b@b.com' && password === 'b') {
