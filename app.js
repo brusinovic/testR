@@ -46,8 +46,10 @@ const localOptions = {
     passwordField: 'password', // Field name for the password
     passReqToCallback: true // Don't pass request object to verify callback
 };
+
+
 // Passport setup
-passport.use(new LocalStrategy(localOptions, 
+passport.use(new LocalStrategy( 
     function(username, password, done) {
         // Replace this with your own logic to verify username and password
         if (username === 'b@b.com' && password === 'b') {
